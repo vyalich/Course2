@@ -1,0 +1,9 @@
+﻿  Button.cpp
+E:\GitHub\Course2\Course2\Button.h(29,19): warning C4806:  ==: небезопасная операция: значение типа "bool", приведенное к типу "BUTTON_STATES", не может равняться данной константе
+E:\GitHub\Course2\Course2\Button.h(30,19): warning C4806:  ==: небезопасная операция: значение типа "bool", приведенное к типу "BUTTON_STATES", не может равняться данной константе
+E:\GitHub\Course2\Course2\Button.cpp(28,21): warning C4305:  =: усечение из "BUTTON_STATES" в "bool"
+E:\GitHub\Course2\Course2\Button.cpp(35,25): warning C4806:  ==: небезопасная операция: значение типа "bool", приведенное к типу "BUTTON_STATES", не может равняться данной константе
+E:\GitHub\Course2\Course2\Button.cpp(45,24): warning C4806:  ==: небезопасная операция: значение типа "bool", приведенное к типу "BUTTON_STATES", не может равняться данной константе
+E:\GitHub\Course2\Course2\Button.cpp(46,23): warning C4305:  =: усечение из "BUTTON_STATES" в "bool"
+E:\GitHub\Course2\Course2\Button.cpp(51,27): warning C4806:  ==: небезопасная операция: значение типа "bool", приведенное к типу "BUTTON_STATES", не может равняться данной константе
+  Course2.vcxproj -> E:\GitHub\Course2\Debug\Course2.exe
