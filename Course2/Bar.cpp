@@ -2,7 +2,7 @@
 
 int Bar::Init(SDL_Renderer* render, const char* path, int n_x, int n_y, int num, int n_orient, int padding)
 {
-	_focused = -1;
+	_focused =-1;
 	_active = 0;
 	pos.x = n_x; pos.y = n_y;
 	size = num;
@@ -31,6 +31,9 @@ int Bar::Init(SDL_Renderer* render, const char* path, int n_x, int n_y, int num,
 		dx -= (W + padding);
 	pos.w = dx + W - pos.x + padding;
 	pos.h = dy + H - pos.y + padding;
+
+	v_Buttons[0]->Press();
+	v_Buttons[0]->Release();
 
 	return 0;
 }
@@ -61,16 +64,19 @@ void Bar::Handle(SDL_Event* event)
 	case SDL_MOUSEMOTION:
 		if (v_Buttons[index]->MouseOver(mx, my))
 		{
-			if (_focused < 0)
+			if (index != _focused && index != _active)
 			{
+				if (_focused >= 0 && _focused != _active)
+					v_Buttons[_focused]->UnFocus();
 				v_Buttons[index]->Focus();
 				_focused = index;
 			}
 		}
 		else
 		{
-			if (_focused >= 0 )
+			if (_focused != _active && _focused >= 0)
 			{
+				SDL_Log("UnFocus: %d, active: %d", _focused, _active);
 				v_Buttons[_focused]->UnFocus();
 				_focused = -1;
 			}
@@ -79,21 +85,26 @@ void Bar::Handle(SDL_Event* event)
 	case SDL_MOUSEBUTTONDOWN:
 		if (event->button.button == SDL_BUTTON_LEFT)
 		{
-			v_Buttons[index]->Press();
-			SDL_Log("%d pressed", index);
+			if (_focused >= 0)
+			{
+				v_Buttons[index]->Press();
+				SDL_Log("%d pressed", index);
+			}
 		}
-
 		break;
 	case SDL_MOUSEBUTTONUP:
 		if (event->button.button == SDL_BUTTON_LEFT)
 		{
-			if (v_Buttons[index]->Release()) {
+			SDL_Log("focus: %d", _focused);
+
+			if (_focused >= 0 && v_Buttons[_focused]->Release())
+			{
+				//v_Buttons[_focused]->Release();
 				v_Buttons[_active]->UnFocus();
-				
 				_active = _focused;
-				_focused = -1;
+				SDL_Log("%d released", index);
+				SDL_Log("active: %d", _active);
 			}
-			SDL_Log("%d released", index);
 		}
 		break;
 	}

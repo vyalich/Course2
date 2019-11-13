@@ -23,36 +23,40 @@ void Button::Render(SDL_Renderer* render)
 
 void Button::Focus()
 {
-	if (_state == BTN_NONE)
-	{
-		_state = BTN_HOVER;
-		SDL_SetTextureColorMod(icon, 0xd0, 0xd0, 0xd0);
-	}
+	_state = BTN_HOVER;
+	SDL_SetTextureColorMod(icon, 0x70, 0x70, 0x70);	//75%
+	SDL_Log("%d", _state);
 }
 
 void Button::UnFocus()
 {
-	if (_state == BTN_HOVER)
-	{
-		_state = BTN_NONE;
-		SDL_SetTextureColorMod(icon, 0xff, 0xff, 0xff);
-	}
+	_state = BTN_NONE;
+	SDL_SetTextureColorMod(icon, 0xff, 0xff, 0xff);	//100%
+	SDL_Log("%d", _state);
 }
 
 void Button::Press()
 {
-	SDL_SetTextureColorMod(icon, 0xa0, 0xa0, 0xa0);
-	if(_state == BTN_HOVER)
-		_state = BTN_PRESSED;
+	_state = BTN_PRESSED;
+	SDL_SetTextureColorMod(icon, 0x10, 0x10, 0x10);	//30%
+	SDL_Log("%d", _state);
 }
 
 bool Button::Release()
 {
 	if (_state == BTN_PRESSED)
-	{
+	{	
 		_state = BTN_ACTIVE;
+		SDL_Log("%d", _state);
 		return true;
 	}
+	SDL_Log("%d", _state);
 	return false;
 	
+}
+
+void Button::Disable()
+{
+	_state = BTN_NONE;
+	SDL_SetTextureColorMod(icon, 0xff, 0xff, 0xff);	//100%
 }

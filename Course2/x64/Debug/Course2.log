@@ -1,0 +1,7 @@
+﻿  App.cpp
+  Button.cpp
+D:\GitHub\Course2\Course2\App.h(3,10): error C1083:  Не удается открыть файл включение: SDL_ttf.h: No such file or directory,
+  Bar.cpp
+D:\GitHub\Course2\Course2\Button.h(3,10): error C1083:  Не удается открыть файл включение: SDL_ttf.h: No such file or directory,
+  Window.cpp
+D:\GitHub\Course2\Course2\Bar.h(3,10): error C1083:  Не удается открыть файл включение: SDL_ttf.h: No such file or directory,
