@@ -1,9 +1,0 @@
-﻿  App.cpp
-  Bar.cpp
-  Button.cpp
-  Window.cpp
-D:\GitHub\Course2\Course2\Bar.cpp(19,49): warning C4804:  <: небезопасное использование типа "bool" в операции
-D:\GitHub\Course2\Course2\Window.cpp(20,19): warning C4244:  =: преобразование "double" в "int", возможна потеря данных
-  Создание кода...
-D:\GitHub\Course2\Course2\Window.cpp(20,41): warning C4244:  =: преобразование "double" в "int", возможна потеря данных
-  Course2.vcxproj -> D:\GitHub\Course2\Debug\Course2.exe
