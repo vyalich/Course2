@@ -85,9 +85,9 @@ void Bar::Handle(SDL_Event* event)
 	case SDL_MOUSEBUTTONDOWN:
 		if (event->button.button == SDL_BUTTON_LEFT)
 		{
-			if (_focused >= 0)
+			if (_focused >= 0 && _focused != _active)
 			{
-				v_Buttons[index]->Press();
+				v_Buttons[_focused]->Press();
 				SDL_Log("%d pressed", index);
 			}
 		}
@@ -99,7 +99,6 @@ void Bar::Handle(SDL_Event* event)
 
 			if (_focused >= 0 && v_Buttons[_focused]->Release())
 			{
-				//v_Buttons[_focused]->Release();
 				v_Buttons[_active]->UnFocus();
 				_active = _focused;
 				SDL_Log("%d released", index);

@@ -26,7 +26,6 @@ public:
 	void UnFocus();
 	void Press();
 	bool Release();
-	void Disable();
 	bool IsFocused() { return (_state == BTN_HOVER); }
 	bool IsPressed() { return (_state == BTN_PRESSED); }
 
