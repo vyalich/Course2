@@ -26,6 +26,7 @@ public:
 	void	Render(SDL_Renderer* render);
 	void	Handle(SDL_Event* event);
 	void	CleanUp();
+	void	Activate0() { v_Buttons[_active]->Release(); v_Buttons[_active]->UnFocus(); v_Buttons[0]->Press(); _active = 0; }
 	void	Unfocus() { if(_focused >= 0 && _focused != _active) v_Buttons[_focused]->UnFocus(); _focused = -1; }
 	bool	MouseOver(int mx, int my) { return (pos.x <= mx && mx < pos.x + pos.w && pos.y <= my
 												&& my < pos.y + pos.h); }

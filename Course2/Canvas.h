@@ -26,11 +26,5 @@ public:
 	void Render(SDL_Renderer* render);
 
 	void Clear();
-
-private:
-	SDL_Rect whole_off;
-	bool	_need_scroll;
-
-	SDL_Rect slider_off;
 };
 

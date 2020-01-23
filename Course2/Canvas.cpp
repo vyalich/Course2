@@ -13,9 +13,6 @@ int Canvas::Init(SDL_Renderer* render)
 	int w, h;
 	SDL_GetRendererOutputSize(render, &w, &h);
 
-	whole_off = { w - 121, 0, 120, h };
-	slider_off = { w - 12, 0, 10, 20 };
-
 	return 0;
 }
 

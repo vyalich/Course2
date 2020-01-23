@@ -86,8 +86,9 @@ int Window::Handle(SDL_Event* event)
 			//SDL_PushEvent(&exitEvent);
 			return 1;
 		}
-		if (event->key.keysym.sym == SDLK_m && !Bar::_active)
+		if (event->key.keysym.sym == SDLK_DOWN)
 		{
+			m_ShapeBar.Activate0();
 			SDL_Log("cur: %d size: %d", Canvas::_current, Canvas::v_elements.size() - 1);
 			if (Canvas::_current < (int)(Canvas::v_elements.size() - 1))
 			{
@@ -100,8 +101,9 @@ int Window::Handle(SDL_Event* event)
 			}
 			
 		}
-		if (event->key.keysym.sym == SDLK_n && !Bar::_active)
+		if (event->key.keysym.sym == SDLK_UP)
 		{
+			m_ShapeBar.Activate0();
 			if (Canvas::_current > 0)
 			{
 				Canvas::v_elements[Canvas::_current]->UnSelect();
