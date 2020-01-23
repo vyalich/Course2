@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\VS_Libs\SDL2_ttf-2.0.15\include;C:\VS_Libs\SDL2_mixer-2.0.4\include;C:\VS_Libs\SDL2_image-2.0.5\include;C:\VS_libs\SDL2-2.0.10\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\VS_Libs\SDL2_ttf-2.0.15\lib\x86;C:\VS_Libs\SDL2_mixer-2.0.4\lib\x86;C:\VS_Libs\SDL2_image-2.0.5\lib\x86;C:\VS_libs\SDL2-2.0.10\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\NFD\src\include;C:\boost_1_72_0;C:\VS_Libs\SDL2_ttf-2.0.15\include;C:\VS_Libs\SDL2_mixer-2.0.4\include;C:\VS_Libs\SDL2_image-2.0.5\include;C:\VS_libs\SDL2-2.0.10\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\NFD\build\lib\Debug\x86;C:\boost_1_72_0\libs;C:\VS_Libs\SDL2_ttf-2.0.15\lib\x86;C:\VS_Libs\SDL2_mixer-2.0.4\lib\x86;C:\VS_Libs\SDL2_image-2.0.5\lib\x86;C:\VS_libs\SDL2-2.0.10\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\VS_libs\SDL2-2.0.10\include;$(IncludePath)</IncludePath>
@@ -90,8 +90,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\VS_libs\SDL2-2.0.10\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;nfd_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\boost_1_72_0\libs;C:\VS_libs\SDL2-2.0.10\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -143,9 +143,17 @@
   <ItemGroup>
     <ClInclude Include="App.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Dot.h" />
+    <ClInclude Include="DRAW.h" />
+    <ClInclude Include="Canvas.h" />
+    <ClInclude Include="ellipse.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="Bar.h" />
+    <ClInclude Include="Line.h" />
+    <ClInclude Include="Palette.h" />
+    <ClInclude Include="Rect.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Slider.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +163,14 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Bar.cpp" />
+    <ClCompile Include="Dot.cpp" />
+    <ClCompile Include="DRAW.cpp" />
+    <ClCompile Include="Canvas.cpp" />
+    <ClCompile Include="ellipse.cpp" />
+    <ClCompile Include="Line.cpp" />
+    <ClCompile Include="Palette.cpp" />
+    <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="Slider.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

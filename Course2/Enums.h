@@ -13,3 +13,27 @@ enum ORIENTATION
 	VERTICAL = 0,
 	HORIZONTAL
 };
+
+enum FIGURE_STATES
+{
+	NONE = 0,
+	DRAG_PN1,
+	DRAG_PN2,
+	DRAG,
+	SCALE,
+	ROTATE
+};
+
+enum SIDES
+{
+	LEFT = 1,
+	RIGHT = 2,
+	TOP = 4,
+	BOT = 8
+};
+
+enum PALETTE
+{
+	CLOSED = 0,
+	OPENED
+};

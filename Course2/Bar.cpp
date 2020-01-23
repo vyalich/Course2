@@ -1,5 +1,7 @@
 #include "Bar.h"
 
+int Bar::_active;
+
 int Bar::Init(SDL_Renderer* render, const char* path, int n_x, int n_y, int num, int n_orient, int padding)
 {
 	_focused =-1;
@@ -40,9 +42,6 @@ int Bar::Init(SDL_Renderer* render, const char* path, int n_x, int n_y, int num,
 
 void Bar::Render(SDL_Renderer* render)
 {
-	SDL_SetRenderDrawColor(render, 0x0, 0x0, 0x0, 0xf0);
-	SDL_RenderFillRect(render, &pos);
-
 	for (int i = 0; i < size; i++)
 	{
 		v_Buttons[i]->Render(render);
@@ -58,6 +57,9 @@ void Bar::Handle(SDL_Event* event)
 		index = (my - pos.y-1) * size / pos.h;
 	else if (orient == HORIZONTAL)
 		index = (mx - pos.w-1) * size / pos.w;
+	
+	if (index >= size)
+		return;
 
 	switch (event->type)
 	{
@@ -103,6 +105,7 @@ void Bar::Handle(SDL_Event* event)
 				_active = _focused;
 				SDL_Log("%d released", index);
 				SDL_Log("active: %d", _active);
+
 			}
 		}
 		break;
